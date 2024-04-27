@@ -1,0 +1,143 @@
+:root {
+  --color-navy-nightfall: #0d151b;
+  --color-tangerine-sunset: #fb4b37;
+  --color-golden-sunset: #fbcc3b;
+  --color-amber-dawn: #ffd986;
+  --color-azure-afternoon: #629bc2;
+  --color-ivory-daybreak: #f0ebeb;
+  --color-light-sand-dune: #d6d2c2;
+  --color-evening-shadow: #514a45;
+}
+
+body {
+  background: var(--color-navy-nightfall);
+  font-family: Montserrat, sans-serif;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 0 8px;
+}
+
+a {
+  color: #51d6c7;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.top_header_row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top_header_row > .header_spacer {
+  width: 24px;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+
+.contact_header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.email_header {
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.logo_header {
+  height: 36px;
+}
+
+.gmail_logo {
+  display: none;
+}
+
+.second_header_row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+@media (width <= 684px) {
+  .email_header {
+    display: none;
+  }
+
+  .gmail_logo {
+    display: initial;
+  }
+}
+
+.second_header_row > h2 {
+  font-size: 24px;
+}
+
+.name_header {
+  color: var(--color-ivory-daybreak);
+}
+
+.engineer_header {
+  color: var(--color-azure-afternoon);
+}
+
+.visualizer_header {
+  color: hsl(from var(--color-golden-sunset) h calc(s * 0.85) calc(l * 0.85) );
+}
+
+.builder_header {
+  color: var(--color-tangerine-sunset);
+}
+
+.about_me {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about_me > p {
+  margin: 0;
+}
+
+.description_text {
+  color: var(--color-light-sand-dune);
+  line-height: 1.6;
+}
+
+ul.description_text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.portfolio_header {
+  color: var(--color-azure-afternoon);
+}
+
+.section_hr {
+  border-color: var(--color-golden-sunset);
+  width: 100%;
+}
+
+.portfolio_sub_header {
+  color: var(--color-tangerine-sunset);
+}
+
+.youtube_embed {
+  align-self: center;
+  margin: 24px 0;
+  border: none;
+}
+
+.linkedin_footer, .linkedin_footer > a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bottom_row {
+  margin-top: 0;
+}

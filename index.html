@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niels Nielsen</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="top_header_row">
+    <h1 class="name_header">Niels Nielsen</h1>
+
+    <div class="header_spacer"></div>
+
+    <div class="contact_header">
+      <a target="_blank" class="email_header" href="mailto:niels.nielsen+dev@gmail.com">niels.nielsen+dev@gmail.com</a>
+
+      <a target="_blank" href="mailto:niels.nielsen+dev@gmail.com">
+        <img class="logo_header gmail_logo" src="images/Gmail_Logo_White_32px.png" alt="Gmail Logo">
+      </a>
+
+      <a target="_blank" href="https://github.com/niels4">
+        <img class="logo_header" src="images/github-mark-white.png" alt="GitHub Logo">
+      </a>
+
+      <a target="_blank" href="https://www.linkedin.com/in/nielsdev/">
+        <img class="logo_header" src="images/In-White-26@2x.png" alt="LinkedIn Logo">
+      </a>
+    </div>
+  </div>
+
+  <div class="second_header_row">
+    <h2 class="engineer_header">UI Engineer</h2>
+    <h2 class="visualizer_header">Data Visualizer</h2>
+    <h2 class="builder_header">Startup Builder</h2>
+  </div>
+
+  <div class="about_me">
+    <p class="description_text">
+      I am a software engineer with experience building complex dashboards featuring animated graphical visualizations
+      for realtime, streaming data.
+    </p>
+    <p class="description_text">
+      As a startup builder, I work quickly to prototype and then ship to early customers the first version of the
+      company's
+      minimum viable product (MVP).
+    </p>
+    <p class="description_text">
+      To scale up the UI team, I evaluate candidates, make hiring decisions, and work to set up onboarding processes to
+      ensure new team members are productive and ready to go on day one.
+    </p>
+  </div>
+
+  <h2 class="portfolio_header">Portfolio</h2>
+
+  <hr class="section_hr">
+
+  <h3 class="portfolio_sub_header">1. ProtectWise</h3>
+
+  <iframe class="youtube_embed" width="560" height="315"
+    src="https://www.youtube.com/embed/GDNJVYDV2Xc?si=toEjKdTDGs3uT08a" title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <ul class="description_text">
+    <li>First UI engineer hired by the founders, later became tech lead for the UI and customer facing API.</li>
+    <li>
+      Collaborated with special effects artist <a target="_blank" href="https://www.mn8studio.com/">Jake Sargeant</a>
+      (<a target="_blank" href="https://www.imdb.com/name/nm2681088/">Tron Legacy, Oblivion</a>)
+      to design, build, and launch the ProtectWise user interface demonstrated in the video above.
+    </li>
+    <li>
+      Pushed the limits of browser technology at the time to deliver a dynamic and responsive user interface typically
+      only seen in desktop applications.
+    </li>
+    <li>
+      Made use of scaled vector graphics (SVG) for visualizations, web workers for perfoming cpu heavy tasks off of the
+      main UI thread, and websockets for bidirectional realtime communication between the UI and API.
+    </li>
+    <li>
+      Built a custom websocket API that would subscribe to kafka data streams to aggregate, format, and deliver live
+      streaming data to meet the unique data requirements needed to drive the UI.
+    </li>
+    <li>
+      Helped grow the company by interviewing and making the final call in the hiring process for new engineers on
+      the UI and API teams.
+    </li>
+    <li>
+      Built health check systems to immediately send an alert to pager duty whenever the API was having troubles
+      performing its required tasks.
+    </li>
+    <li>
+      Helped prototype experimental 3d immersive interfaces using the Oculus/Meta Quest and the Microsoft HoloLens.
+    </li>
+  </ul>
+
+  <h3 class="portfolio_sub_header">2. Websocket Text Relay</h3>
+
+  <img class="wtr_screenshot" src="images/wtr-screenshot.png" alt="Websocket Text Relay screenshot">
+
+  <p class="description_text">
+    I built this tool because I needed a way to develop complex SVG visualizations and the existing
+    feedback loop delay between making code changes and seeing them show up in the browser was taking too long. Even a 5
+    second delay to build the app and refresh the page is disruptive when I need to make several changes per second in
+    order to fine tune things like colors, size, spacing, etc. For years this project existed as a quickly hacked
+    together
+    vim plugin that was only set up to work on my machine.
+  </p>
+
+  <p class="description_text">
+    I wanted to create a portfolio project that demonstrated how I was able to build the ProtectWise UI, so I decided to
+    turn this side project into a tool that any web developer can understand, install, and use in their own text editor.
+
+    I first converted the app to use the language server protocol (LSP) to be able to communicate with any LSP
+    compatible
+    text editor.
+
+    Using the tool itself, I created a status UI that allows users to view the current status of the running servers and
+    connected front end clients.
+
+    Finally, I published the language server along with the text editor plugins and a few examples of how to use them on
+    github.
+  </p>
+
+  <ul class="description_text">
+    <li>Language Server: <a target="_blank" href="https://github.com/niels4/websocket-text-relay">
+        https://github.com/niels4/websocket-text-relay</a></li>
+    <li>Vite Plugin: <a target="_blank"
+        href="https://github.com/niels4/vite-plugin-websocket-text-relay">https://github.com/niels4/vite-plugin-websocket-text-relay</a>
+    </li>
+    <li>Neovim Plugin: <a target="_blank"
+        href="https://github.com/niels4/websocket-text-relay.nvim">https://github.com/niels4/websocket-text-relay.nvim</a>
+    </li>
+  </ul>
+
+  <h3 class="portfolio_sub_header">3. Code Samples</h3>
+
+  <p class="description_text">
+    I use advent of code as a fun way to practice my algorithm skills and learn new languages. Here are my solutions
+    to the 2023 advent of code challenge in Javascript, Typescript, C++, and Swift.
+  </p>
+
+  <ul class="description_text">
+    <li>Advent of Code 2023 Solutions: <a target="_blank"
+        href="https://github.com/niels4/code-samples-aoc-2023">https://github.com/niels4/code-samples-aoc-2023</a>
+    </li>
+  </ul>
+
+  <h2 class="portfolio_header">Work History / LinkedIn / Contact</h2>
+  <hr class="section_hr">
+
+  <p class="description_text linkedin_footer">
+    My complete work history can be found in my
+    <a target="_blank" href="https://www.linkedin.com/in/nielsdev/">
+      LinkedIn Profile
+      <img class="logo_header" src="images/In-White-26@2x.png" alt="LinkedIn Logo">
+    </a>
+  </p>
+
+  <p class="description_text bottom_row">
+    To contact me directly, email me at <a target="_blank"
+      href="mailto:niels.nielsen+dev@gmail.com">niels.nielsen+dev@gmail.com</a>
+  </p>
+</body>
+
+</html>
