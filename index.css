@@ -85,7 +85,9 @@ a {
 }
 
 .visualizer_header {
-  color: hsl(from var(--color-golden-sunset) h calc(s * 0.85) calc(l * 0.85) );
+  /* color: hsl(from var(--color-golden-sunset) h calc(s * 0.85) calc(l * 0.85) ); */
+  /* firefox doesn't support hsl from yet, so we'll manually add the computed color here for now */
+  color: color(srgb 0.911067 0.717975 0.122267);
 }
 
 .builder_header {
