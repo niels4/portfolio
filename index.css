@@ -142,4 +142,18 @@ ul.description_text {
 
 .bottom_row {
   margin-top: 0;
+  padding: 0;
+}
+
+.location {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5ch;
+  align-items: first baseline;
+  margin-bottom: 20px;
+}
+
+
+address {
+  color: var(--color-light-sand-dune);
 }
