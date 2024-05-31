@@ -7,6 +7,9 @@
   --color-ivory-daybreak: #f0ebeb;
   --color-light-sand-dune: #d6d2c2;
   --color-evening-shadow: #514a45;
+  
+  /* --color-darker-sunset: hsl(from var(--color-golden-sunset) h calc(s * 0.85) calc(l * 0.85) ); */
+  --color-darker-sunset: color(srgb 0.911067 0.717975 0.122267); /* firefox doesn't support hsl from, so we'll manually add the computed color here for now */
 }
 
 body {
@@ -85,9 +88,7 @@ a {
 }
 
 .visualizer_header {
-  /* color: hsl(from var(--color-golden-sunset) h calc(s * 0.85) calc(l * 0.85) ); */
-  /* firefox doesn't support hsl from yet, so we'll manually add the computed color here for now */
-  color: color(srgb 0.911067 0.717975 0.122267);
+  color: var(--color-darker-sunset);
 }
 
 .builder_header {
@@ -126,6 +127,11 @@ ul.description_text {
 
 .portfolio_sub_header {
   color: var(--color-tangerine-sunset);
+}
+
+.code_sample_header {
+  color: var(--color-darker-sunset);
+  margin: 0;
 }
 
 .youtube_embed {
