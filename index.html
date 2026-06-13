@@ -44,7 +44,7 @@
 
   <div class="about_me">
     <p class="description_text">
-      I am a software engineer with experience building data intensive dashboards that simplify comprehension by using
+      I am a software engineer with experience building data-intensive dashboards that simplify comprehension by using
       graphics and animations that can be understood at a glance.
     </p>
     <p class="description_text">
@@ -71,7 +71,7 @@
     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
   <ul class="description_text">
-    <li>First UI engineer hired by the founders, later became tech lead for the UI and public API.</li>
+    <li>First UI engineer hired by the founders, later became tech lead for the UI and customer-facing API.</li>
     <li>
       Collaborated with special effects artist <a target="_blank" href="https://www.mn8studio.com/">Jake Sargeant</a>
       (<a target="_blank" href="https://www.imdb.com/name/nm2681088/">Tron Legacy, Oblivion</a>)
@@ -82,11 +82,11 @@
       only seen in desktop applications.
     </li>
     <li>
-      Made use of scaled vector graphics (SVG) for visualizations, web workers for perfoming cpu heavy tasks off of the
-      main UI thread, and websockets for bidirectional realtime communication between the UI and API.
+      Made use of scaled vector graphics (SVG) for visualizations, web workers for performing CPU-heavy tasks off of the
+      main UI thread, and WebSockets for bidirectional real-time communication between the UI and API.
     </li>
     <li>
-      Built a custom websocket API that would subscribe to kafka data streams to aggregate, format, and deliver live
+      Built a custom WebSocket API that would subscribe to Kafka data streams to aggregate, format, and deliver live
       streaming data to meet the unique data requirements needed to drive the UI.
     </li>
     <li>
@@ -94,7 +94,7 @@
       the UI and API teams.
     </li>
     <li>
-      Built health check systems to immediately send an alert to pager duty whenever the API was having troubles
+      Built health check systems to immediately send an alert to PagerDuty whenever the API was having troubles
       performing its required tasks.
     </li>
     <li>
@@ -102,31 +102,30 @@
     </li>
   </ul>
 
-  <h3 class="portfolio_sub_header">2. Websocket Text Relay</h3>
+  <h3 class="portfolio_sub_header">2. WebSocket Text Relay</h3>
 
-  <img class="wtr_screenshot" src="images/wtr-screenshot.png" alt="Websocket Text Relay screenshot">
+  <img class="wtr_screenshot" src="images/wtr-screenshot.png" alt="WebSocket Text Relay screenshot">
 
   <p class="description_text">
     I built this tool because I needed a way to develop complex SVG visualizations and the existing
-    feedback loop delay between making code changes and seeing them show up in the browser was taking too long. Even a 5
-    second delay to build the app and refresh the page is disruptive when I need to make several changes per second in
-    order to fine tune things like colors, size, spacing, etc. For years this project existed as a quickly hacked
-    together
-    vim plugin that was only set up to work on my machine.
+    feedback loop delay between making code changes and seeing them show up in the browser was taking too long. Even a 5-second
+    delay to build the app and refresh the page is disruptive when I need to make several changes per second in
+    order to fine-tune things like colors, size, spacing, etc. For years this project existed as a quickly
+    hacked-together Vim plugin that was only set up to work on my machine.
   </p>
 
   <p class="description_text">
     I wanted to create a portfolio project that demonstrated how I was able to build the ProtectWise UI, so I turned
     this side project into a tool that any web developer can understand, install, and use in their own text editor.
 
-    I first converted the app to use the language server protocol (LSP) to be able to communicate with any LSP
-    compatible text editor.
+    I first converted the app to use the Language Server Protocol (LSP) to be able to communicate with any LSP-compatible
+    text editor.
 
     Using the tool itself, I created a status UI (pictured above) that allows users to view the current status of the
-    running servers and connected front end clients.
+    running servers and connected frontend clients.
 
     Finally, I published the language server along with the text editor plugins and a few examples of how to use them on
-    github.
+    GitHub.
   </p>
 
   <ul class="description_text">
@@ -147,21 +146,21 @@
   <h4 class="code_sample_header">Real-time Video and Image Processing</h4>
 
   <p class="description_text">
-    This was a quick tech demo that I put together to learn how to work with video and images as data in a webGPU
+    This was a quick tech demo that I put together to learn how to work with video and images as data in a WebGPU
     shader. It uses the webcam as a video source to show that the processing is done in real time. It includes filters
     for edge detection and color corrections to improve color contrast for users with different forms of colorblindness.
     The processing is done entirely on the client side, so no data is ever transmitted to a server. Normally I wouldn't
     use a framework for a project with this small of a scope, but I used Next.js for this example because I wanted to
-    have some code samples that show my knowledge of Next.js, Typescript, and React. This demo is entirely unstyled
-    because the focus was on demoing how to work with images and video and I didn't want to be slowed down or side
-    tracked by having to make design decisions.
+    have some code samples that show my knowledge of Next.js, TypeScript, and React. This demo is entirely unstyled
+    because the focus was on demoing how to work with images and video and I didn't want to be slowed down or sidetracked
+    by having to make design decisions.
   </p>
 
   <ul class="description_text">
-    <li>Github Repo: <a target="_blank"
+    <li>GitHub Repo: <a target="_blank"
         href="https://github.com/niels4/video-canvas">https://github.com/niels4/video-canvas</a>
     </li>
-    <li>Published Demo (Requires a WebGPU enabled browser): <a target="_blank"
+    <li>Published Demo (Requires a WebGPU-enabled browser): <a target="_blank"
         href="https://niels4.dev/video-canvas">https://niels4.dev/video-canvas</a>
     </li>
   </ul>
@@ -169,13 +168,14 @@
   <h4 class="code_sample_header">Advent of Code</h4>
 
   <p class="description_text">
-    I use advent of code as a fun way to practice my algorithm skills and learn new languages. Here are my solutions
-    to the 2023 advent of code challenge in Javascript, Typescript, C++, and Swift.
+    I use Advent of Code as a fun way to practice my algorithm skills and learn new languages. My most recent work in
+    TypeScript focuses on high-performance data structures, including KD-Trees and heaps that operate on continuous
+    strided arrays. This mirrors the way data is handled in WebGPU for complex visualizations.
   </p>
 
   <ul class="description_text">
-    <li>Advent of Code 2023 Solutions: <a target="_blank"
-        href="https://github.com/niels4/code-samples-aoc-2023">https://github.com/niels4/code-samples-aoc-2023</a>
+    <li>Advent of Code Solutions: <a target="_blank"
+        href="https://github.com/niels4/advent-of-code">https://github.com/niels4/advent-of-code</a>
     </li>
   </ul>
 
