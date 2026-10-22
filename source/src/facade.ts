@@ -20,7 +20,7 @@ export function initVideo(): void {
 const VIEWER_URL = "https://niels4.github.io/math-viz/#function-viewer"
 
 /**
- * Wide screens get the live Function Viewer in a lazy iframe; phones keep the link button. A shield covers the
+ * Wide screens get the live Function Viewer in a lazy iframe; phones keep the screenshot. A shield covers the
  * frame so the wheel scrolls the page; a click lifts it, and it returns when the pointer leaves the frame.
  */
 export function initViewer(): void {

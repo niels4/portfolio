@@ -330,7 +330,8 @@ a[data-copyable] {
 .hero-sub {
   max-width: 44ch;
   font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
-  color: var(--foreground-muted);
+  /* A step brighter than the muted text, to read over the plot. */
+  color: color-mix(in oklch, var(--foreground-muted) 50%, var(--foreground));
 }
 
 .hero-actions {
@@ -426,17 +427,7 @@ a[data-copyable] {
   display: none;
 }
 
-/* Phones get a screenshot of the viewer in place of the live frame, with the link to the app under it. */
-.viewer-phone {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.viewer-phone p {
-  margin: 0;
-}
-
+/* Phones get a screenshot of the viewer in place of the live frame. */
 .viewer-shot img {
   display: block;
   width: 100%;
@@ -692,21 +683,37 @@ address {
     padding-bottom: 40px;
   }
 
-  .hero-shade {
-    background: linear-gradient(
-      180deg,
-      var(--background) 0%,
-      color-mix(in srgb, var(--background) 80%, transparent) 55%,
-      transparent 100%
-    );
-  }
-
   .steps {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .video-facade {
     width: 100%;
+  }
+}
+
+/* In a tall window each view is only as tall as its content. Filled to the screen's height, a view centered its
+   content between empty bands, and the hero's plot sat far below its words; now the plot sits behind them
+   (hero.ts). The scroll padding keeps a linked view's content clear of the header. */
+@media (orientation: portrait) {
+  .view {
+    min-height: 0;
+    padding-block: 64px;
+  }
+
+  .view-hero {
+    align-items: flex-start;
+    padding-top: calc(var(--header-h) + 40px);
+  }
+
+  /* The words run nearly the full width here, so the shade reaches across them. */
+  .hero-shade {
+    background: linear-gradient(
+      90deg,
+      var(--background) 0%,
+      color-mix(in srgb, var(--background) 85%, transparent) 45%,
+      color-mix(in srgb, var(--background) 45%, transparent) 100%
+    );
   }
 }
 

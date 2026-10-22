@@ -39,10 +39,10 @@ function draw(): void {
   const { ctx, w, h, dpr } = fit(canvas)
   palette ??= readPalette()
   const p = palette
-  const narrow = w < 760
+  // The plot sits behind the words in any window: a tall one's hero is only as tall as its words (style.css).
   const s = h / UNITS_Y // pixels per unit
-  const ox = narrow ? w * 0.5 : w * 0.64
-  const oy = narrow ? h * 0.72 : h * 0.54
+  const ox = w * 0.64
+  const oy = h * 0.54
   const toX = (x: number): number => ox + x * s
   const toY = (y: number): number => oy - y * s
 
