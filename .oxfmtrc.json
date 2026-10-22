@@ -14,5 +14,5 @@
       "unknown"
     ]
   },
-  "ignorePatterns": ["**/*.css.d.ts", "generated/**", "dist/**"]
+  "ignorePatterns": ["**/*.css.d.ts", "generated/**", "public/**"]
 }

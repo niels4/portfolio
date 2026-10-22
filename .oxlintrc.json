@@ -13,7 +13,7 @@
     "typeAware": true,
     "reportUnusedDisableDirectives": "error"
   },
-  "ignorePatterns": ["**/*.css.d.ts", "generated/**", "dist/**"],
+  "ignorePatterns": ["**/*.css.d.ts", "generated/**", "public/**"],
   "rules": {
     "curly": "error",
     "typescript/no-deprecated": "error",
