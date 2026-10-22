@@ -4,5 +4,6 @@ import { defineConfig } from "vite"
 export default defineConfig({
   // Relative asset paths work under any prefix, such as a GitHub Pages project path.
   base: "./",
-  build: { outDir: "dist", emptyOutDir: true },
+  // GitHub Pages serves the committed build from docs/.
+  build: { outDir: "docs", emptyOutDir: true },
 })
