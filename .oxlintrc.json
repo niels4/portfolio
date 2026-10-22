@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "oxc", "import"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "pedantic": "off",
+    "perf": "off",
+    "restriction": "off",
+    "style": "off"
+  },
+  "options": {
+    "typeAware": true,
+    "reportUnusedDisableDirectives": "error"
+  },
+  "ignorePatterns": ["**/*.css.d.ts", "generated/**", "dist/**"],
+  "rules": {
+    "curly": "error",
+    "typescript/no-deprecated": "error",
+    "eslint/no-underscore-dangle": "off",
+    "eslint/no-shadow": "off",
+    "import/no-unassigned-import": "off",
+    "import/no-empty-named-blocks": "off",
+    "typescript/consistent-return": "off",
+    "typescript/no-unsafe-type-assertion": "off",
+    "typescript/unbound-method": "off"
+  }
+}

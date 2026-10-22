@@ -1,0 +1,26 @@
+{
+  "name": "portfolio",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "format": "oxfmt --write",
+    "lint": "oxlint",
+    "typecheck": "tsc -b --noEmit",
+    "test": "npm run lint && npm run typecheck",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "oxfmt": "^0.74.0",
+    "oxlint": "^1.89.0",
+    "oxlint-tsgolint": "^7.0.2004",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  }
+}

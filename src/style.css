@@ -1,0 +1,696 @@
+@import "../fonts/fonts.css";
+@import "./palette.css";
+
+:root {
+  --header-h: 52px;
+  --radius: 3px;
+  --gutter: 24px;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: var(--header-h);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Smooth only once the page has settled on load (motion.ts adds the class), so the browser's jump to a
+   direct link is instant and lands where the page's own correction puts it. */
+@media (prefers-reduced-motion: no-preference) {
+  html.settled {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Montserrat, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  transition: background-color 0.25s;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: var(--primary);
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 8px 12px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* Header */
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: var(--header-h);
+  padding: 6px var(--gutter);
+  background: color-mix(in srgb, var(--background) 82%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+}
+
+.brand {
+  color: var(--primary);
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav {
+  margin-inline: auto;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: 4px;
+}
+
+.site-nav a {
+  position: relative;
+  display: block;
+  padding: 6px 10px 8px;
+  color: var(--foreground-muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav a:hover {
+  color: var(--foreground);
+}
+
+.site-nav a[aria-current="true"] {
+  color: var(--foreground);
+}
+
+/* A straight bar: a bottom border on a rounded link curls up at both ends. */
+.site-nav a[aria-current="true"]::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: var(--primary);
+}
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Profile icons: the brand marks as masks, so they take the primary color like the name. */
+.icon-link {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 38px;
+  color: var(--primary);
+  border-radius: var(--radius);
+}
+
+.icon-link:hover {
+  color: var(--foreground);
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  background-color: currentColor;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.icon-linkedin {
+  mask-image: url("../images/In-White-26@2x.png");
+}
+
+.icon-github {
+  mask-image: url("../images/github-mark-white.png");
+}
+
+/* Buttons */
+
+.button {
+  display: inline-block;
+  padding: 10px 18px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius);
+  border: 1px solid var(--primary);
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+
+.button:hover {
+  box-shadow: 0 0 0 3px var(--chart-glow);
+  transform: translateY(-1px);
+}
+
+.button-small {
+  padding: 5px 12px;
+  font-size: 0.875rem;
+}
+
+.button-large {
+  padding: 14px 28px;
+  font-size: 1.125rem;
+}
+
+.text-link {
+  font-weight: 600;
+}
+
+/* Views */
+
+.view {
+  position: relative;
+  min-height: 100svh;
+  padding: calc(var(--header-h) + 40px) 0 56px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+}
+
+.view:first-child {
+  border-top: 0;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.kicker {
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 1.0625rem;
+  margin-top: 8px;
+}
+
+.lead {
+  max-width: 62ch;
+  color: var(--foreground-muted);
+}
+
+/* Hero */
+
+.view-hero {
+  overflow: hidden;
+}
+
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--background) 0%,
+    color-mix(in srgb, var(--background) 85%, transparent) 38%,
+    transparent 72%
+  );
+  pointer-events: none;
+}
+
+.hero-content {
+  gap: 24px;
+}
+
+/* Links whose text readers copy: a drag selects the text instead of dragging the link. */
+a[data-copyable] {
+  -webkit-user-drag: none;
+  user-select: text;
+}
+
+.hero-title {
+  max-width: 11ch;
+  font-size: clamp(2.5rem, 7vw, 5.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+.hero-sub {
+  max-width: 44ch;
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  color: var(--foreground-muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+
+/* ProtectWise */
+
+/* ProtectWise's video and the relay's screenshot share one frame, so both views line up. */
+.video-facade,
+.relay-shot {
+  position: relative;
+  width: min(100%, calc((100svh - 470px) * 16 / 9));
+  min-width: min(100%, 520px);
+  aspect-ratio: 16 / 9;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.video-facade iframe,
+.video-play {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-play {
+  padding: 0;
+  background: var(--card);
+  cursor: pointer;
+}
+
+.video-play img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 72px;
+  height: 72px;
+  margin: -36px 0 0 -36px;
+  background: var(--primary);
+  border-radius: var(--radius);
+  transition: transform 0.15s;
+}
+
+.play-icon::after {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 29px;
+  border-style: solid;
+  border-width: 14px 0 14px 22px;
+  border-color: transparent transparent transparent var(--primary-foreground);
+}
+
+.video-play:hover .play-icon {
+  transform: scale(1.06);
+}
+
+.proof-lines {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.proof-lines li {
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--primary);
+  border-radius: var(--radius);
+  color: var(--foreground);
+  font-size: 0.9375rem;
+}
+
+/* math-viz */
+
+.viewer-frame {
+  display: none;
+}
+
+.viewer-phone {
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .viewer-frame {
+    display: block;
+    position: relative;
+    aspect-ratio: 16 / 10;
+    width: min(100%, calc((100svh - 220px) * 1.6));
+    min-width: min(100%, 600px);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .viewer-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* Over the frame until clicked, so the wheel scrolls the page instead of zooming the plot. */
+  .viewer-shield {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .viewer-shield span {
+    padding: 6px 12px;
+    background: color-mix(in srgb, var(--background) 85%, transparent);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font: inherit;
+    font-size: 0.875rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .viewer-shield:hover span,
+  .viewer-shield:focus-visible span {
+    opacity: 1;
+  }
+
+  .viewer-active .viewer-shield {
+    display: none;
+  }
+
+  .viewer-phone {
+    display: none;
+  }
+}
+
+.steps-wrap {
+  position: relative;
+  padding-top: 8px;
+}
+
+.steps-line {
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin-bottom: -2px;
+  overflow: visible;
+}
+
+.steps-line path {
+  stroke: var(--primary);
+  stroke-width: 2;
+  fill: none;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.steps a {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+  padding: 14px 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--foreground);
+  text-decoration: none;
+  transition:
+    border-color 0.15s,
+    transform 0.15s;
+}
+
+.steps a:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.step-n {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
+.step-name {
+  font-weight: 700;
+}
+
+.step-text {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--foreground-muted);
+}
+
+.split {
+  max-width: 70ch;
+  font-size: 1.0625rem;
+}
+
+.aside {
+  max-width: 70ch;
+  color: var(--foreground-muted);
+}
+
+/* Text Relay */
+
+/* The status page screenshot, centered on its own background in the same 16:9 frame as the video. */
+.relay-shot {
+  background: #0e151b;
+}
+
+.relay-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Close */
+
+.view-close .container {
+  gap: 28px;
+}
+
+.close-title {
+  max-width: 20ch;
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  line-height: 1.1;
+}
+
+.close-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  color: var(--foreground-muted);
+  font-size: 0.9375rem;
+}
+
+address {
+  font-style: normal;
+}
+
+.close-location {
+  margin-top: 8px;
+  color: var(--foreground-muted);
+  font-size: 0.9375rem;
+}
+
+/* Motion: content waits hidden until its view enters; the script reveals it. */
+
+.motion [data-reveal],
+.motion .hero-title {
+  opacity: 0;
+}
+
+/* Narrow screens */
+
+@media (max-width: 1000px) {
+  .proof-lines {
+    grid-template-columns: 1fr;
+  }
+
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .steps-line {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --header-h: 96px;
+    --gutter: 16px;
+  }
+
+  .site-header {
+    flex-wrap: wrap;
+    gap: 2px 10px;
+    padding-block: 6px;
+  }
+
+  .brand {
+    order: 1;
+  }
+
+  .header-tools {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .site-nav {
+    order: 3;
+    flex-basis: 100%;
+    margin: 0;
+    overflow-x: auto;
+  }
+
+  .site-nav ul {
+    gap: 0;
+    justify-content: space-between;
+  }
+
+  .site-nav a {
+    padding: 4px 5px 6px;
+    font-size: 0.75rem;
+  }
+
+  .view {
+    padding-top: calc(var(--header-h) + 24px);
+    padding-bottom: 40px;
+  }
+
+  .hero-shade {
+    background: linear-gradient(
+      180deg,
+      var(--background) 0%,
+      color-mix(in srgb, var(--background) 80%, transparent) 55%,
+      transparent 100%
+    );
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .video-facade {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

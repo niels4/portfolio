@@ -1,0 +1,31 @@
+/* The site's one palette, from math-viz2's dark cyan theme. Canvases read these same properties. */
+
+:root {
+  color-scheme: dark;
+  --background: oklch(0.137 0.02 228.74);
+  --background-muted: oklch(0.1817 0.0213 224.39);
+  --card: oklch(0.2073 0.0257 228.29);
+  --foreground: oklch(0.9753 0.0206 211.76);
+  --foreground-muted: oklch(0.7083 0.0317 220.75);
+  --primary: oklch(0.8442 0.1457 209.29);
+  /* The primary cyan, a little darker and less saturated: the name in the header. */
+  --primary-muted: oklch(0.8 0.09 209.29);
+  --primary-foreground: oklch(0.2481 0.0422 216.06);
+  --border: oklch(0.3396 0.0423 220.01);
+  --accent: oklch(0.7487 0.173 53.99);
+  --accent-2: oklch(0.6816 0.2415 353.18);
+  --accent-3: oklch(0.8493 0.2073 128.85);
+  --chart-grid: oklch(0.3396 0.0423 220.01);
+  --chart-grid-major: color-mix(in oklch, var(--foreground-muted) 35%, var(--chart-grid));
+  --chart-axis: color-mix(in oklch, var(--foreground-muted) 75%, var(--background));
+  --chart-line: oklch(0.8442 0.1457 209.29);
+  --chart-accent: oklch(0.7487 0.173 53.99);
+  --chart-accent-2: oklch(0.6816 0.2415 353.18);
+  --chart-glow: oklch(0.8442 0.1457 209.29 / 0.4);
+  /* The point riding the wave: a hot pink dot with a pale rim, glowing out to the transparent pink. */
+  --chart-point: oklch(0.6738 0.2663 347.45);
+  --chart-point-rim: oklch(0.9416 0.0462 331.47);
+  --chart-point-fade: oklch(0.6738 0.2663 347.45 / 0);
+  /* The point's guide to the axis: the point's pink, a little lighter and less saturated. */
+  --chart-point-guide: oklch(0.82 0.14 347.45);
+}
