@@ -342,9 +342,10 @@ a[data-copyable] {
 
 /* ProtectWise */
 
-/* ProtectWise's video and the relay's screenshot share one frame, so both views line up. */
+/* ProtectWise's video, the relay's screenshot and math-viz's phone screenshot share one frame, so the views line up. */
 .video-facade,
-.relay-shot {
+.relay-shot,
+.viewer-shot {
   position: relative;
   width: min(100%, calc((100svh - 470px) * 16 / 9));
   min-width: min(100%, 520px);
@@ -424,8 +425,22 @@ a[data-copyable] {
   display: none;
 }
 
+/* Phones get a screenshot of the viewer in place of the live frame, with the link to the app under it. */
 .viewer-phone {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.viewer-phone p {
+  margin: 0;
+}
+
+.viewer-shot img {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media (min-width: 900px) {
@@ -449,7 +464,8 @@ a[data-copyable] {
     border: 0;
   }
 
-  /* Over the frame until clicked, so the wheel scrolls the page instead of zooming the plot. */
+  /* Over the frame until clicked, so the wheel scrolls the page instead of zooming the plot; while its message shows, a
+     grey, slightly desaturated wash marks the viewer inactive. */
   .viewer-shield {
     position: absolute;
     inset: 0;
@@ -461,13 +477,22 @@ a[data-copyable] {
     border: 0;
     font: inherit;
     cursor: pointer;
+    transition:
+      background-color 0.2s,
+      backdrop-filter 0.2s;
+  }
+
+  .viewer-shield:hover,
+  .viewer-shield:focus-visible {
+    background: color-mix(in srgb, var(--foreground-muted) 15%, transparent);
+    backdrop-filter: saturate(0.7);
   }
 
   .viewer-shield span {
     padding: 6px 12px;
     background: color-mix(in srgb, var(--background) 85%, transparent);
     color: var(--foreground);
-    border: 1px solid var(--border);
+    border: 1px solid var(--primary);
     border-radius: var(--radius);
     font: inherit;
     font-size: 0.875rem;
