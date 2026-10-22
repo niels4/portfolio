@@ -70,8 +70,8 @@ function revealHero(): void {
   if (title) {
     gsap.set(title, { opacity: 1 })
     const split = SplitText.create(title, { type: "words", mask: "words" })
-    // Each mask clips at the line box, which the tight line height puts above descenders (the g in
-    // "glance"). Extend the clip below the line without moving the layout.
+    // Each mask clips at the line box, which the tight line height puts above descenders (a g or y).
+    // Extend the clip below the line without moving the layout.
     gsap.set(split.masks, { paddingBottom: "0.25em", marginBottom: "-0.25em" })
     tl.from(split.words, { yPercent: 135, duration: 0.8, ease: "power3.out", stagger: 0.08 })
   }

@@ -581,11 +581,6 @@ a[data-copyable] {
   font-size: 1.0625rem;
 }
 
-.aside {
-  max-width: 70ch;
-  color: var(--foreground-muted);
-}
-
 /* Text Relay */
 
 /* The status page screenshot, centered on its own background in the same 16:9 frame as the video. */
