@@ -342,13 +342,14 @@ a[data-copyable] {
 
 /* ProtectWise */
 
-/* ProtectWise's video, the relay's screenshot and math-viz's phone screenshot share one frame, so the views line up. */
+/* ProtectWise's video, the relay's screenshot and math-viz's phone screenshot share one frame, as wide as math-viz's
+   viewer at every screen size, so the views line up. */
 .video-facade,
 .relay-shot,
 .viewer-shot {
   position: relative;
-  width: min(100%, calc((100svh - 470px) * 16 / 9));
-  min-width: min(100%, 520px);
+  width: min(100%, calc((100svh - 220px) * 1.6));
+  min-width: min(100%, 600px);
   aspect-ratio: 16 / 9;
   background: var(--card);
   border: 1px solid var(--border);
