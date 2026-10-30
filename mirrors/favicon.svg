@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- The MathViz mark: SnowflakeIcon's paths (src/components/ui/icons.tsx)
+  on a tile, in the default theme's colours (arctic-ice: the mark in primary,
+  the tile in background-muted, as the top bar draws them). The tile keeps it
+  clear on light and dark tabs; the mark sits at 90 % with a 2.4 stroke so
+  its six arms and arrow tips still read at 16 px. -->
+  <rect width="24" height="24" rx="5" fill="#101921" />
+  <g
+    transform="translate(12 12) scale(0.9) translate(-12 -12)"
+    fill="none"
+    stroke="#70c0a0"
+    stroke-width="2.4"
+    stroke-linecap="round"
+  >
+    <path d="M12 2v20M3.3 7l17.4 10M20.7 7L3.3 17" />
+    <path d="M12 2l-2 2.5M12 2l2 2.5M12 22l-2-2.5M12 22l2-2.5" />
+  </g>
+</svg>
