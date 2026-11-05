@@ -320,11 +320,17 @@ a[data-copyable] {
 }
 
 .hero-title {
+  font-family: "Inter Tight", Montserrat, system-ui, sans-serif;
   max-width: 11ch;
   font-size: clamp(2.5rem, 7vw, 5.25rem);
   line-height: 1.02;
-  letter-spacing: -0.025em;
   font-weight: 700;
+}
+
+/* Inter Tight has no ff ligature, so the headline makes one: pulling the first f in until the two crossbars
+   run together as a single bar. */
+.hero-title .lig-ff {
+  letter-spacing: -0.048em;
 }
 
 .hero-sub {
