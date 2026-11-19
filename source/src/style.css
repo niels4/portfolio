@@ -320,20 +320,14 @@ a[data-copyable] {
 }
 
 .hero-title {
-  font-family: "Inter Tight", Montserrat, system-ui, sans-serif;
+  font-family: "Exo 2", Montserrat, system-ui, sans-serif;
   max-width: 11ch;
   font-size: clamp(2.5rem, 7vw, 5.25rem);
   line-height: 1.02;
-  font-weight: 700;
+  font-weight: 800;
 }
 
-/* Inter Tight has no ff ligature, so the headline makes one: pulling the first f in until the two crossbars
-   run together as a single bar. */
-.hero-title .lig-ff {
-  letter-spacing: -0.048em;
-}
-
-/* Keeps a phrase together so the headline breaks where it reads best ("Build boldly, / be remembered."). */
+/* Keeps a phrase together so the headline breaks where it reads best ("Build boldly / Be remembered"). */
 .hero-title .nowrap {
   white-space: nowrap;
 }
@@ -634,6 +628,7 @@ a[data-copyable] {
   max-width: 20ch;
   font-size: clamp(2rem, 5vw, 3.75rem);
   line-height: 1.1;
+  text-wrap: balance;
 }
 
 .close-links {

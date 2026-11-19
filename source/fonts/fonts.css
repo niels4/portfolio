@@ -34,9 +34,10 @@
   font-display: swap;
 }
 
+/* Exo 2, a static instance of the variable font at wght 800 (Google Fonts v26, OFL). */
 @font-face {
-  font-family: "Inter Tight";
-  src: url("InterTight-Bold.ttf") format("truetype");
-  font-weight: 700;
+  font-family: "Exo 2";
+  src: url("Exo2-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
   font-display: swap;
 }
