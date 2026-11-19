@@ -333,6 +333,11 @@ a[data-copyable] {
   letter-spacing: -0.048em;
 }
 
+/* Keeps a phrase together so the headline breaks where it reads best ("Build boldly, / be remembered."). */
+.hero-title .nowrap {
+  white-space: nowrap;
+}
+
 .hero-sub {
   max-width: 44ch;
   font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
@@ -415,6 +420,32 @@ a[data-copyable] {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+}
+
+/* A critic's pull quote under a section title, in the hero subtitle's color. */
+.pull-quote {
+  max-width: 46ch;
+}
+
+.pull-quote blockquote {
+  margin: 0;
+  font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.35;
+  color: color-mix(in oklch, var(--foreground-muted) 50%, var(--foreground));
+}
+
+.pull-quote figcaption {
+  margin-top: 10px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pull-quote figcaption a {
+  text-decoration: none;
 }
 
 .proof-lines li {
