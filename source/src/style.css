@@ -558,7 +558,7 @@ a[data-copyable] {
 
 .steps {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 12px;
 }
 
@@ -663,8 +663,17 @@ address {
     grid-template-columns: 1fr;
   }
 
+  /* Five steps as a row of three over a row of two, each row filling the width. */
   .steps {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .steps li {
+    grid-column: span 2;
+  }
+
+  .steps li:nth-child(n + 4) {
+    grid-column: span 3;
   }
 
   .steps-line {
@@ -715,8 +724,18 @@ address {
     padding-bottom: 40px;
   }
 
+  /* Two columns, with the fifth step spanning both. */
   .steps {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps li,
+  .steps li:nth-child(n + 4) {
+    grid-column: auto;
+  }
+
+  .steps li:last-child {
+    grid-column: 1 / -1;
   }
 
   .video-facade {
