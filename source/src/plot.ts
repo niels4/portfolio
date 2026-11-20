@@ -29,7 +29,14 @@ function resolve(name: string): string {
   return getComputedStyle(probe).color
 }
 
-export function readPalette(): Palette {
+/**
+ * The chart colors, or undefined until the stylesheet that defines them has loaded. WebKit can run the page's
+ * module script before its stylesheet arrives, and every color read then comes back black.
+ */
+export function readPalette(): Palette | undefined {
+  if (!getComputedStyle(document.documentElement).getPropertyValue("--chart-line")) {
+    return undefined
+  }
   return {
     background: resolve("--background-muted"),
     grid: resolve("--chart-grid"),

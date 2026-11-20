@@ -36,8 +36,11 @@ export function setHeroIntro(value: number): void {
 }
 
 function draw(): void {
-  const { ctx, w, h, dpr } = fit(canvas)
   palette ??= readPalette()
+  if (!palette) {
+    return
+  }
+  const { ctx, w, h, dpr } = fit(canvas)
   const p = palette
   // The plot sits behind the words in any window: a tall one's hero is only as tall as its words (style.css).
   const s = h / UNITS_Y // pixels per unit
@@ -272,6 +275,10 @@ export function initHero(): void {
   }
   const still = reducedMotion()
   draw()
+  // Without its stylesheet the first draw has no colors and skips; the page's load event waits for the stylesheet.
+  if (!palette) {
+    window.addEventListener("load", () => draw(), { once: true })
+  }
 
   new ResizeObserver(() => draw()).observe(canvas)
 
