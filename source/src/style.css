@@ -327,7 +327,7 @@ a[data-copyable] {
   font-weight: 800;
 }
 
-/* Keeps a phrase together so the headline breaks where it reads best ("Build boldly / Be remembered"). */
+/* Keeps a phrase together so the headline breaks where it reads best ("Ship software / Win customers"). */
 .hero-title .nowrap {
   white-space: nowrap;
 }
@@ -417,8 +417,19 @@ a[data-copyable] {
 }
 
 /* A critic's pull quote under a section title, in the hero subtitle's color. */
+/* Quotes sit side by side when both fit at a readable width, and stack otherwise. */
+.pull-quotes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 48px;
+}
+
 .pull-quote {
   max-width: 46ch;
+}
+
+.pull-quotes .pull-quote {
+  flex: 1 1 22rem;
 }
 
 .pull-quote blockquote {
@@ -625,10 +636,15 @@ a[data-copyable] {
 }
 
 .close-title {
-  max-width: 20ch;
+  max-width: 24ch;
   font-size: clamp(2rem, 5vw, 3.75rem);
   line-height: 1.1;
   text-wrap: balance;
+}
+
+/* Each sentence of the closing line starts on its own line. */
+.close-title span {
+  display: block;
 }
 
 .close-links {
