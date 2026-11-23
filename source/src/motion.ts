@@ -101,8 +101,19 @@ function revealHero(): void {
 function revealContent(): void {
   const items = gsap.utils.toArray<HTMLElement>("main section:not(#top) [data-reveal]")
   gsap.set(items, { opacity: 0, y: 24 })
+  // A page that opens at a lower view (a direct link, a reload) enters every piece above it in one batch.
+  // Only the pieces on screen take a turn in the stagger, so they never wait behind ones nobody can see.
   const show = (batch: Element[]): void => {
-    gsap.to(batch, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", stagger: 0.1, overwrite: true })
+    const onScreen = batch.filter((item) => ScrollTrigger.isInViewport(item))
+    const offScreen = batch.filter((item) => !onScreen.includes(item))
+    const shown = { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", overwrite: true }
+    // GSAP warns about an empty target list, so each group animates only when it has members.
+    if (onScreen.length > 0) {
+      gsap.to(onScreen, { ...shown, stagger: 0.1 })
+    }
+    if (offScreen.length > 0) {
+      gsap.to(offScreen, { ...shown })
+    }
   }
   const hide =
     (y: number) =>
